@@ -4,7 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const routes_api_memos = require('./routes/routes.api.memos');
+const routes_api_memos = require('./routes/routes.api.memo');
 
 require('dotenv').config()
 
