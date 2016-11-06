@@ -27,6 +27,7 @@ let allMemos = (req, res) => {
   * @apiSuccess new memo's content {String}
 */
 let addMemo = (req, res) => {
+  console.log(req.body.content);
   Memo.create({
     content: req.body.content
   }, (err, new_memo) => {

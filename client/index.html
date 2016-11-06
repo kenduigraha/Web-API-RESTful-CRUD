@@ -10,10 +10,46 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-  <title>Web API RESTful CRUD</title>
+  <title>Web API RESTful CRUD AJAX</title>
 </head>
 <body>
+  <!-- navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Memo</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- end navbar -->
 
+  <div class="container">
+    <form id="form_new_memo" method="post">
+      <div class="form-group">
+        <label for="content">Input your content :</label>
+        <textarea class="form-control" id="content" style="resize:none;">
+
+        </textarea>
+      </div>
+      <button type="button" class="btn btn-info" id="btn_update_memo">Update</button>
+      <button type="button" class="btn btn-success" id="btn_add_memo">Submit</button>
+    </form>
+
+    <!-- table list memos -->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="col-sm-6">Content</th>
+            <th class="col-sm-6">Action</th>
+          </tr>
+        </thead>
+        <tbody id="body_table_memos"></tbody>
+      </table>
+      <!-- end table list memos -->
+  </div>
 </body>
   <!-- jQuery -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
