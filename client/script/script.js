@@ -5,12 +5,12 @@ $(document).ready(() => {
 })
 
 let submitNewMemo = () => {
-  $('#btn_new_memo').on('click', (e) => {
+  $('#btn_add_memo').on('click', (e) => {
     e.preventDefault()
     let data_memo = {
       content : $('#content').val()
     }
-    // console.log(data_memo);
+    console.log(data_memo);
 
     $.ajax({
       url         : 'http://localhost:3000/api/memos',
@@ -20,6 +20,14 @@ let submitNewMemo = () => {
       data        : data_memo,
       success      : (new_memo) => {
         console.log(new_memo);
+        var new_memo_HTML = `<tr id=${new_memo._id}>
+        <td>${new_memo.content}</td>
+        <td>
+          <button type="button" class="btn btn-warning" id="edit_memo" onclick="submitEditButton('${new_memo._id}')">Edit</button>
+          <button type="button" class="btn btn-danger" id="delete_memo" onclick="submitDeleteButton('${new_memo._id}')">Delete</button>
+        </td>
+        </tr>`
+        $('#body_table_memos').prepend(new_memo_HTML)
       }
     })
     $('#form_new_memo')[0].reset()
